@@ -9,6 +9,7 @@
         
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta charset="uft-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -29,43 +30,33 @@
 					alert("Position must be filled out");
 					return false;
 				}
+                document.getElementById("button").style.color = "red";
+                document.getElementById("message").innerHTML = "scan your finger";
             }
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.sidenav');
-                var instances = M.Sidenav.init(elems, options);
-              });
-
-              // Or with jQuery
-
-              $(document).ready(function(){
-                $('.sidenav').sidenav();
-              });
 		</script>
     </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav>
+      <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-            </ul>
+          <a href="#" class="brand-logo">Smart Training System</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="LogIn.html">Log In</a></li>
+          </ul>
         </div>
     </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-    </ul>
+      <ul class="sidenav" id="mobile-demo">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="LogIn.html">Log In</a></li>
+      </ul>
     <div class="container">
     <!-- Page Content -->
       <div class="row">
@@ -75,27 +66,25 @@
         <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
-              <input id="name" type="text" class="validate">
+              <input name="name" id="name" type="text" class="validate">
               <label for="name">Name</label>
             </div>
-              <div class="input-field col s3"></div>
         </div>
         <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
-              <input id="id" type="text" class="validate">
+              <input name="id" id="id" type="number" class="validate">
               <label for="id">User ID</label>
-            <div class="input-field col s3"></div>
             </div>
         </div>
-        <div class="row">
+      <!--  <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
               <input id="password" type="password" class="validate">
               <label for="password">Password</label>
             </div>
             <div class="input-field col s3"></div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="input-field col s3"></div>
             <div class="input-field col s6">
@@ -107,19 +96,19 @@
             <div class="input-field col s3"></div>
             <div class="input-field col s6">              <p>
                 <label>
-                    <input name="group1" type="radio" unchecked />
+                    <input name="position" id="position" name="group1" type="radio" value=1 unchecked />
                     <span>Operator</span>
                 </label>
               </p>
               <p>
                 <label>
-                    <input name="group1" type="radio" unchecked />
+                    <input name="position" id="position" name="group1" type="radio" value=2 unchecked />
                     <span>Supervisor</span>
                 </label>
              </p>
              <p>
                 <label>
-                    <input name="group1" type="radio" unchecked />
+                    <input name="position" id="position" name="group1" type="radio" value=3 unchecked />
                     <span>Manager</span>
                 </label>
               </p>
@@ -127,12 +116,14 @@
             <div class="input-field col s3"></div>
         </div>
         <div class="input-field col s3"></div>
-        <div class="input-field col s6">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <div class="input-field col s3">
+            <button id="button" class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
         </div>
-        <div class="input-field col s3"></div>
+        <div class="input-field col s3">
+            <p id="message"></p>
+            </div>
         </form>
       </div>
     </div>
@@ -140,6 +131,7 @@
       
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      
     </body>
 
 </html>
