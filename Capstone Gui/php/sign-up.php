@@ -1,12 +1,12 @@
 <?php
     session_start();
-
+    set_time_limit(100);
     require_once __DIR__ . '/employee_info.php';
 		
     $id = $_POST['id'];
     $name = $_POST['name'];
     $position  = $_POST['position'];    
-
+        
     $user = new employee($name);
     
     $check = $user->CheckName($id);
@@ -19,12 +19,13 @@
     else
     {
         $user->setInfo($id, $name, $position);
-        sleep(3);
+        sleep(10);
+
         $flag_1 = false;
         $count = 0;
         while(($flag_1 == false) and ($count < 20))
         {
-            sleep(1);
+            sleep(2);
             $flag_1 = $user->CheckFingerInfo($id);
             echo $count;
             $count++;
