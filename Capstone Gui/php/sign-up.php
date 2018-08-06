@@ -7,7 +7,9 @@
     $name = $_POST['name'];
     $position  = $_POST['position'];    
         
-    $user = new employee($name);
+    $user = new employee();
+        
+    $user->setname($name);
     
     $check = $user->CheckName($id);
 	            

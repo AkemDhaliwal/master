@@ -4,9 +4,9 @@ class employee{
     protected $id;
     protected $E_name;
     protected $position;
+    protected $status;
     //private $password;
-    public function __construct(string $name){
-        $this->E_name = $name;
+    public function __construct(){
     }
 
     public function getName(){
@@ -18,7 +18,11 @@ class employee{
     public function getPosition(){
         return $this->position;
     }
-  
+    
+    public function setname($name){
+        $this->E_name = $name;
+    }
+    
     public function CheckName(int $id){
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -32,6 +36,24 @@ class employee{
 	        $this->name = $row['name'];
             return $this->name;
         }
+    }
+    
+    public function getValidUser(){
+        $this->status = 1;
+        $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $query = "SELECT* FROM authentication WHERE status = :";
+        $statement = $db->prepare($query);	
+        $statement->bindvalue('status', $this->status);
+        $result = $statement->execute();
+	    if($result > 0)
+        {
+            $row = $statement->fetch(1);
+	        $this->name = $row['id'];
+            return $this->id;
+        }
+        else
+            return 0;
     }
     
     public function CheckFingerInfo(int $id){
