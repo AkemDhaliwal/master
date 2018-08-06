@@ -12,26 +12,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta charset="uft-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-        <script>
-			function validateForm() {
-				var x = document.forms["myForm"]["id"].value;
-				if (x < 0 || x > 10000) {
-					alert("Employee ID must be between 1 and 10000");
-					return false;
-				}
-				var x = document.forms["myForm"]["name"].value;
-				if (x == "") {
-					alert("Employee name must be filled out");
-					return false;
-				}
-				var x = document.forms["myForm"]["position"].value;
-				if (x == "") {
-					alert("Position must be filled out");
-					return false;
-				}
-            }
-		</script>
     </head>
 
   <body>
@@ -56,7 +36,7 @@
     <div class="container">
     <!-- Page Content -->
       <div class="row">
-        <form class="col s12" name="myForm" action="php/log-in.php" onsubmit="return validateForm()" method="post">
+        <form class="col s12" name="myForm" action="php/log-in.php" method="post">
             
         <div class="input-field col s3"></div>
         <div class="input-field col s6">

@@ -5,17 +5,22 @@
         
     $user = new employee();
                 
-    sleep(10);
-
+    sleep(5);
+    $id = 0;
     $flag_1 = false;
     $count = 0;
-    while(($flag_1 == false) and ($count < 20))
+    while(($flag_1 == false) and ($count < 40))
     {
-        sleep(2);
-        $user->id = $user->getValidUser();
-        if($user->id > 0)
+        set_time_limit(10);
+        sleep(1);
+        $id = $user->getValidUser();
+        if($id > 0)
         {
-            $flag_1 = 1;
+            $flag_1 = true;
+        }
+        else if($user->CheckCmd() == true)
+        {
+            $count = 40;
         }
         echo $count;
         $count++;
