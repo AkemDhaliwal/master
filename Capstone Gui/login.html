@@ -3,15 +3,12 @@
 
     <head>
       <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
       <!--Let browser know website is optimized for mobile-->
-      <meta charset="uft-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
         <script>
 			function validateForm() {
@@ -25,22 +22,22 @@
 
   <body>
     <!-- Navigation -->
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Smart Training System</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-          </ul>
-        </div>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo">Smart Training System</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Sign-up.html">Sign up</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="Sign-up.html">Sign up</a></li>
+        </ul>
+      </div>
     </nav>
-      <ul class="sidenav" id="mobile-demo">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-      </ul>
     <div class="container">
     <!-- Page Content -->
     <div class="row"></div>
@@ -66,7 +63,13 @@
     </div>
     </div>
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>      
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+       <script>
+          $(".button-collapse").sideNav();
+       </script> 
     </body>
 
 </html>
