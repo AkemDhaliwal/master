@@ -25,14 +25,14 @@
 
         $flag_1 = false;
         $count = 0;
-        while(($flag_1 == false) and ($count < 20))
+        while(($flag_1 == false) and ($count < 40))
         {
             set_time_limit(10);
-            sleep(2);
+            sleep(1);
             $flag_1 = $user->CheckFingerInfo($id);
             if($user->CheckCmd() == true)
             {
-                $count = 20;
+                $count = 40;
             }
             echo $count;
             $count++;
