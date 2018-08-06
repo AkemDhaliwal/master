@@ -30,7 +30,10 @@
             set_time_limit(10);
             sleep(2);
             $flag_1 = $user->CheckFingerInfo($id);
-            $flag_1 = $user->CheckCmd();
+            if($user->CheckCmd() == true)
+            {
+                $count = 20;
+            }
             echo $count;
             $count++;
         }
