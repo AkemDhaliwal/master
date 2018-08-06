@@ -8,15 +8,18 @@
     $user->SetCmd(3);
                 
     sleep(5);
-    $id = 0;
     $flag_1 = false;
     $count = 0;
     while(($flag_1 == false) and ($count < 40))
     {
         set_time_limit(10);
         sleep(1);
-        $id = $user->getValidUser();
-        if($id > 0)
+        $row = $user->getValidUser();
+        if ($row != false)
+        {
+            $info = json_decode($row);
+        } 
+        if($info->id > 0)
         {
             $flag_1 = true;
         }
@@ -29,10 +32,20 @@
 
     if($flag_1 == true)
     {
-            $_SESSION['username']=$id;
-			$_SESSION['password']=$id;
-			echo "<p> You are logged in. </p>";
-			echo "<p> Please click <a href='member.php'> here</a></p>";
+            $_SESSION['id']=$info->id;
+			$_SESSION['position']=$info->position;
+        if($info->position == 1)
+        {
+            echo "<script type='text/javascript'>location.href = 'member.php';</script>";
+        }
+        else if($info->position == 2)
+        {
+            echo "<script type='text/javascript'>location.href = 'supervisor.php';</script>";
+        }
+        else if($info->position == 3)
+        {
+            echo "<script type='text/javascript'>location.href = 'manager.php';</script>";
+        }
     }
     else
     {     

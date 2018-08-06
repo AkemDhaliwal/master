@@ -47,9 +47,8 @@ class employee{
 	    if($result > 0)
         {
             $row = $statement->fetch(1);
-	       
-            $this->id = $row['id'];
-            return $this->id;
+            
+            return json_encode($row); 
         }
         else
             return 0;

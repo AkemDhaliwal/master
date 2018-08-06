@@ -1,5 +1,5 @@
 <?php
-class member extends guest{
+class member extends employee{
     
     private $password;
   

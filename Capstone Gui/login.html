@@ -15,8 +15,9 @@
         
         <script>
 			function validateForm() {
-                document.getElementById("button").style.color = "red";
-                document.getElementById("message").innerHTML = "scan your finger";
+                document.getElementById("button").style.color = "black";
+                document.getElementById("message").innerHTML = "Place your finger on sensor";
+                 document.getElementById("message").style.fontSize="22px";    
             }
 		</script>
         
@@ -47,22 +48,18 @@
         <form class="col s12" name="myForm" onsubmit="return validateForm()" action="php/log-in.php" method="post">
         
         <div class="input-field col s3"></div>
-        <div class="input-field col s3">
-            <i class="medium material-icons">fingerprint</i>
-        </div>
-        <div class="input-field col s4">
+        <div class="input-field col s6">
             <button id="button" class="btn-large waves-effect waves-light" type="submit" name="action">Login
                 <i class="material-icons right">send</i>
             </button>
         </div>
-        <div class="input-field col s2"></div>
+        <div class="input-field col s3"></div>
         </form>
     </div>
     <div class="row">
         <div class="input-field col s3"></div>
         <div class="input-field col s6">
         <div id="message">
-            
         </div>
         </div>
         <div class="input-field col s3"></div>
