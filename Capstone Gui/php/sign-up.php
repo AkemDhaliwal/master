@@ -35,7 +35,6 @@
             {
                 $count = 40;
             }
-            echo $count;
             $count++;
         }
 

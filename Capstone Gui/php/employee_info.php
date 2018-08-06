@@ -39,12 +39,10 @@ class employee{
     }
     
     public function getValidUser(){
-        $this->status = 1;
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $query = "SELECT* FROM authentication WHERE status = :status";
+        $query = "SELECT* FROM authentication WHERE status = 1";
         $statement = $db->prepare($query);	
-        $statement->bindvalue('status', $this->status);
         $result = $statement->execute();
 	    if($result > 0)
         {
