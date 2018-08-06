@@ -21,6 +21,7 @@
     else
     {
         $user->setInfo($id, $name, $position);
+        $user->SetCmd(2);
         sleep(5);
 
         $flag_1 = false;
@@ -47,7 +48,7 @@
         else
         {     
             $user->deleteLastEntry($id);
-            $user->deleteCmd();
+            $user->SetCmd(0);
             echo "<h2>No Finger detected</h2>";
             echo "<p> Click here <a href='../Sign-up.html'>here</a> to try again </p>";
         }

@@ -42,7 +42,7 @@ class employee{
         $this->status = 1;
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $query = "SELECT* FROM authentication WHERE status = :";
+        $query = "SELECT* FROM authentication WHERE status = :status";
         $statement = $db->prepare($query);	
         $statement->bindvalue('status', $this->status);
         $result = $statement->execute();
@@ -78,8 +78,7 @@ class employee{
         return false;
     }
     
-    public function CheckCmd(){
-        
+    public function CheckCmd(){  
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $query = "SELECT* FROM command WHERE num = 1";
@@ -123,18 +122,14 @@ class employee{
            		'position'    => $this->position
 			 ];
 		$result = $statement->execute($params);
-       
-       	$db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
-	    $query = 'UPDATE command SET cmd= 2 WHERE num = 1';
-		$statement = $db->prepare($query);
-		$result = $statement->execute();
 
 	}
     
-    public function deleteCmd(){
+    public function SetCmd($cmd){
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
-	    $query = 'UPDATE command SET cmd= 0 WHERE num = 1';
+	    $query = 'UPDATE command SET cmd= :cmd WHERE num = 1';
 		$statement = $db->prepare($query);
+        $statement->bindvalue('cmd', $cmd);
 		$result = $statement->execute(); 
     }
 } 

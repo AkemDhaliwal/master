@@ -4,6 +4,8 @@
     require_once __DIR__ . '/employee_info.php';   
         
     $user = new employee();
+
+    $user->SetCmd(3);
                 
     sleep(5);
     $id = 0;
@@ -35,6 +37,7 @@
     }
     else
     {     
+        $user->SetCmd(0);
         echo "<h2>No Finger detected or invalid user</h2>";
         echo "<p> Click here <a href='../login.html'>here</a> to try again </p>";
     }
