@@ -43,6 +43,7 @@
         else
         {     
             $user->deleteLastEntry($id);
+            $user->deleteCmd();
             echo "<h2>No Finger detected</h2>";
             echo "<p> Click here <a href='../Sign-up.html'>here</a> to try again </p>";
         }

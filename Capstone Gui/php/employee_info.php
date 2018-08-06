@@ -102,11 +102,18 @@ class employee{
 			 ];
 		$result = $statement->execute($params);
        
-       	    $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
-	   $query = 'UPDATE command SET cmd= 2 WHERE num = 1';
+       	$db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
+	    $query = 'UPDATE command SET cmd= 2 WHERE num = 1';
 		$statement = $db->prepare($query);
 		$result = $statement->execute();
 
 	}
+    
+    public function deleteCmd(){
+        $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
+	    $query = 'UPDATE command SET cmd= 0 WHERE num = 1';
+		$statement = $db->prepare($query);
+		$result = $statement->execute(); 
+    }
 } 
 ?>
