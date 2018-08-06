@@ -1,6 +1,6 @@
 <?php
     session_start();
-    set_time_limit(100);
+
     require_once __DIR__ . '/employee_info.php';
 		
     $id = $_POST['id'];
@@ -27,6 +27,7 @@
         $count = 0;
         while(($flag_1 == false) and ($count < 20))
         {
+            set_time_limit(10);
             sleep(2);
             $flag_1 = $user->CheckFingerInfo($id);
             echo $count;
