@@ -47,7 +47,8 @@ class employee{
 	    if($result > 0)
         {
             $row = $statement->fetch(1);
-	        $this->name = $row['id'];
+	       
+            $this->id = $row['id'];
             return $this->id;
         }
         else

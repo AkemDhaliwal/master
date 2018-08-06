@@ -12,10 +12,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
       <!--Let browser know website is optimized for mobile-->
       <meta charset="uft-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <script>
+			function validateForm() {
+                document.getElementById("button").style.color = "red";
+                document.getElementById("message").innerHTML = "scan your finger";
+            }
+		</script>
+        
     </head>
 
   <body>
-
     <!-- Navigation -->
       <nav>
         <div class="nav-wrapper">
@@ -35,25 +42,34 @@
       </ul>
     <div class="container">
     <!-- Page Content -->
-      <div class="row">
-        <form class="col s12" name="myForm" action="php/log-in.php" method="post">
-            
+    <div class="row"></div>
+    <div class="row">
+        <form class="col s12" name="myForm" onsubmit="return validateForm()" action="php/log-in.php" method="post">
+        
         <div class="input-field col s3"></div>
-        <div class="input-field col s6">
-            <i class="large material-icons">fingerprint</i>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <div class="input-field col s3">
+            <i class="medium material-icons">fingerprint</i>
+        </div>
+        <div class="input-field col s4">
+            <button id="button" class="btn-large waves-effect waves-light" type="submit" name="action">Login
                 <i class="material-icons right">send</i>
             </button>
         </div>
-        <div class="input-field col s3"></div>
+        <div class="input-field col s2"></div>
         </form>
-      </div>
     </div>
-
-      
+    <div class="row">
+        <div class="input-field col s3"></div>
+        <div class="input-field col s6">
+        <div id="message">
+            
+        </div>
+        </div>
+        <div class="input-field col s3"></div>
+    </div>
+    </div>
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      
+      <script type="text/javascript" src="js/materialize.min.js"></script>      
     </body>
 
 </html>
