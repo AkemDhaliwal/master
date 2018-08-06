@@ -21,7 +21,7 @@
     else
     {
         $user->setInfo($id, $name, $position);
-        sleep(10);
+        sleep(5);
 
         $flag_1 = false;
         $count = 0;
@@ -30,6 +30,7 @@
             set_time_limit(10);
             sleep(2);
             $flag_1 = $user->CheckFingerInfo($id);
+            $flag_1 = $user->CheckCmd();
             echo $count;
             $count++;
         }

@@ -57,6 +57,7 @@ class employee{
     }
     
     public function CheckFingerInfo(int $id){
+        
         $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $query = "SELECT* FROM authentication WHERE id = :id";
@@ -72,6 +73,27 @@ class employee{
             }
             else
                 return true;
+        }
+        else
+        return false;
+    }
+    
+    public function CheckCmd(){
+        
+        $db = new PDO('mysql:host=127.0.0.1;dbname=authentication','root','');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $query = "SELECT* FROM command WHERE num = 1";
+        $statement = $db->prepare($query);	
+        $result = $statement->execute();
+	    if($result > 0)
+        {
+            $row = $statement->fetch(1);
+	        if($row['cmd'] == 0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
         else
         return false;
