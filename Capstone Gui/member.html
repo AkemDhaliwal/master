@@ -2,96 +2,57 @@
 <html>
 	<head>
       <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-        
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
       <!--Let browser know website is optimized for mobile-->
-      <meta charset="uft-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
-        
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
     </head>
     
-    <body>
+    <body onload="updateData()";>
 
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Smart Training System</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="../Home.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../contacts.html">Contacts</a></li>
-          </ul>
-        </div>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo">Smart Training System</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="member.php">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="Logout.php">Log out</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="member.php">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="Logout.php">Log out</a></li>
+        </ul>
+      </div>
     </nav>
-      <ul class="sidenav" id="mobile-demo">
-            <li><a href="../Home.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../contacts.html">Contacts</a></li>
-      </ul>
     <div class="container">
+        <br>
+        <br>
         <div class="row">
-            <div class="col-xs-8">
-                <h1>Members only Page</h1>
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <h1> </h1>
-            </div>
-        </div>
-	
-
-        <div class="row">
-            <div class="col-xs-1"></div>
-            <form action="edit.php" method="post" id="edit">
-            <div class="col-xs-4">
-            <fieldset>
-            <legend>Profile</legend>
-        		<label for="pass" class="text_label">Password:</label>
-        		<input id="pass" type="password" class="text_input" name="password">
-                <label for="user" class="text_label"> Email: </label>
-                <input id="email" type="text" class="text_input" name="email">  
-                <div><input type="submit" value="Update" id="update"/></div>
-            </fieldset>           
-            </div>
-            </form>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-5">
-                 <div id='Email'></div>
-                <div id='UserID'></div>
-                <div id='Username'></div> 
-               
+            <div class="col-xs-3">
+                 <div id='name'></div>
+                <div id='position'></div>
+                <div id='id'></div>     
             </div>         
         </div>  
+    
         <div class="row">
-            
-            <div class="col-xs-4">
-                <h1>LogBook</h1>
-                <form name="myForm" action="write.php" method="post">	
-                <textarea id="data" cols="40" rows="5"name="logdata"></textarea><br>
-                <div><input type="submit" value="Enter log"></div>
-               </form>
-            <div>
-                <form action="Delete_log.php" method="post" id="edit">
-                <input type="submit" value="Delete logs">
-                </form>
-            </div>
-            </div>
-            <div class="col-xs-1"></div>
-            <div class="col-xs-7">
-			     <?php include 'php/read_logs.php';?>
+            <div class="col-xs-3"></div>
+           <div class="col-xs-6">
+			     <?php include 'php/readDocsOperator.php';?>
             </div> 
-        </div>
-    </div>
-        
-    <script type="text/javascript" src="../js/materialize.min.js"></script> 
+            <div class="col-xs-3"></div>
+        </div>  
+      </div> 
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+       <script>
+          $(".button-collapse").sideNav();
+       </script> 
         
     </body>
 </html>
@@ -105,30 +66,30 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("Email").innerHTML = this.responseText;
+            document.getElementById("name").innerHTML = this.responseText;
           }
         };
-          xhttp.open("POST","read_email.php", true);
+          xhttp.open("POST","getName.php", true);
           xhttp.send();
     }
     function grabUsername(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("Username").innerHTML = this.responseText;
+            document.getElementById("position").innerHTML = this.responseText;
           }
         };
-          xhttp.open("POST","read_username.php", true);
+          xhttp.open("POST","getPosition.php", true);
           xhttp.send();
     } 
     function grabUserID(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("UserID").innerHTML = this.responseText;
+            document.getElementById("id").innerHTML = this.responseText;
           }
         };
-          xhttp.open("POST","read_userID.php", true);
+          xhttp.open("POST","id.php", true);
           xhttp.send();
     }   
 </script>

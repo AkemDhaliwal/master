@@ -14,7 +14,7 @@
                 var y= document.getElementById("supervisor").checked;
                 var z= document.getElementById("manager").checked;
                 
-				if(x==true && y==false && z==false)
+				if(x==false && y==false && z==false)
                     {
                         alert("Select one of the positions");
 					    return false;  
@@ -41,12 +41,12 @@
         <a href="#!" class="brand-logo">Smart Training System</a>
         <a href="#" data-activates="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="../home.html">Home</a></li>
+          <li><a href="../login.html">Home</a></li>
           <li><a href="../about.html">About</a></li>
           <li><a href="Logout.php">Log out</a></li>
         </ul>
         <ul class="sidenav" id="mobile-demo">
-          <li><a href="../home.html">Home</a></li>
+          <li><a href="../login.html">Home</a></li>
           <li><a href="../about.html">About</a></li>
           <li><a href="Logout.php">Log out</a></li>
         </ul>
@@ -80,7 +80,7 @@
                 </p>
                 <p>
                   <label>
-                    <input id="opesupervisorrator" name="supervisor" type="checkbox" />
+                    <input id="supervisor" name="supervisor" type="checkbox" />
                     <span>Supervisor</span>
                   </label>
                 </p>

@@ -32,8 +32,8 @@
 
     if($flag_1 == true)
     {
-            $_SESSION['id']=$info->id;
-			$_SESSION['position']=$info->position;
+            $_SESSION['id'] = $info->id;
+			$_SESSION['position'] = $info->position;
         if($info->position == 1)
         {
             echo "<script type='text/javascript'>location.href = 'member.php';</script>";
