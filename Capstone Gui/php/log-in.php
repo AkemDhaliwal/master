@@ -10,7 +10,7 @@
     sleep(5);
     $flag_1 = false;
     $count = 0;
-    while(($flag_1 == false) and ($count < 40))
+    while(($flag_1 == false) and ($count < 60))
     {
         set_time_limit(10);
         sleep(1);
@@ -18,14 +18,15 @@
         if ($row != false)
         {
             $info = json_decode($row);
+            if($info->id > 0)
+            {
+                $flag_1 = true;
+            }
         } 
-        if($info->id > 0)
-        {
-            $flag_1 = true;
-        }
+
         else if($user->CheckCmd() == true)
         {
-            $count = 40;
+            $count = 60;
         }
         $count++;
     }

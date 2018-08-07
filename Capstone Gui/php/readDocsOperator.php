@@ -14,11 +14,11 @@
 
     echo'<table id="table">'; 
 
-    echo'<tr><td>..index...|</td><td>.....Training Name.....|</td></tr>';
+    echo'<tr><td>  Training Name  </td><td>  Document  </td></tr>';
 
     while($row = $statement->fetch($result)){
 
-    echo "<tr><td>" . $row['indx'] . "</td><td>". $row['name'] . "</td></tr>";
+    echo "<tr></td><td>". $row['name'] . "</td><td>". $row['docName'] . "</td></tr>";
     }
     echo"</table>"; 
 
