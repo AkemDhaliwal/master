@@ -1,0 +1,10 @@
+<iframe id="myFrame" style="display:none" width="500" height="300"></iframe>
+<input type="button" value="Open PDF" onclick = "openPdf()"/>
+<script type="text/javascript">
+function openPdf()
+{
+var omyFrame = document.getElementById("myFrame");
+omyFrame.style.display="block";
+omyFrame.src = "documents/Cover_letter.pdf";
+}
+</script>

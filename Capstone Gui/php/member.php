@@ -6,5 +6,5 @@ session_start();
 		require_once "../member.html";
 		
 	}	else {
-        echo "<p>You are logged in, click here <a href='../login.html'>here</a> to login </p>";	}
+        echo "<p>You are not logged in, click here <a href='../login.html'>here</a> to login </p>";	}
 ?>
